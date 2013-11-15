@@ -1,0 +1,16 @@
+{
+    "name": "securepay/sxml",
+    "license": "OSL-3.0",
+    "type": "magento-module",
+    "description": "Official SecurePay XML API (AU) Enables credit-card payments via the SecurePay gateway.",
+    "homepage": "http://www.magentocommerce.com/magento-connect/securepay-xml-api-au.html",
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "authors": [
+        {
+            "name": "Andrew Dubbeld",
+            "email": "support@securepay.com.au"
+        }
+    ]
+}
