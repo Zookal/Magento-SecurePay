@@ -5,6 +5,8 @@ Unofficial repository for the Magento SecurePay SecureXML module with patches.
 
 Code pool has been moved to `community`. The aligent version has code pool `local` which is in some constellations not useful.
 
+### Version 1.0.8.8
+
 ### Patches
 
 ```
@@ -33,3 +35,6 @@ useful in OnePageController::saveOrderAction()
 Offical extension in the [Magento Store](http://www.magentocommerce.com/magento-connect/official-securepay-xml-api-au.html).
 
 
+### Maintainer
+
+Cyrill Schumacher / @SchumacherFM
