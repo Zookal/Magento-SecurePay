@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SecurePay Sxml Extension
  *

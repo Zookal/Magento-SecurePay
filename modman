@@ -2,7 +2,6 @@
 # Modman file for the SecurePay http://www.securepay.com.au/ecommerce/supported-shopping-carts/magento/ (payment gateway)
 #--------------------------------------------------
 
-#symlinking with modman
 app/code/community/SecurePay/ app/code/community/SecurePay/
 app/design/frontend/base/default/template/sxml/ app/design/frontend/base/default/template/sxml/
 app/design/adminhtml/default/default/template/sxml/ app/design/adminhtml/default/default/template/sxml/

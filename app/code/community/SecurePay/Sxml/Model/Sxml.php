@@ -23,6 +23,7 @@
 require_once('SecurePay/securexml.php');
 
 define('NO_ANTIFRAUD', 1);
+
 /**
  * SecurePay_Sxml_Model_Sxml
  *
@@ -32,17 +33,17 @@ class SecurePay_Sxml_Model_Sxml extends Mage_Payment_Model_Method_Cc
 {
     protected $_code = 'Sxml';
 
-    protected $_isGateway = TRUE;
-    protected $_canAuthorize = TRUE;
-    protected $_canCapture = TRUE;
-    protected $_canCapturePartial = TRUE;
-    protected $_canRefund = TRUE;
-    protected $_canRefundInvoicePartial = TRUE;
-    protected $_canVoid = TRUE;
-    protected $_canUseInternal = TRUE;
-    protected $_canUseCheckout = TRUE;
-    protected $_canUseForMultishipping = TRUE;
-    protected $_canSaveCc = FALSE;
+    protected $_isGateway = true;
+    protected $_canAuthorize = true;
+    protected $_canCapture = true;
+    protected $_canCapturePartial = true;
+    protected $_canRefund = true;
+    protected $_canRefundInvoicePartial = true;
+    protected $_canVoid = true;
+    protected $_canUseInternal = true;
+    protected $_canUseCheckout = true;
+    protected $_canUseForMultishipping = true;
+    protected $_canSaveCc = false;
 
     protected $_formBlockType = 'Sxml/form_cc';
 
@@ -153,7 +154,7 @@ class SecurePay_Sxml_Model_Sxml extends Mage_Payment_Model_Method_Cc
             $logger = new Zend_Log($writer);
         }
 
-        $approved       = TRUE;
+        $approved       = true;
         $iStoreId       = $payment->getOrder()->getStoreId();
         $transaction_id = $payment->getOrder()->getIncrementId();
 
@@ -182,7 +183,7 @@ class SecurePay_Sxml_Model_Sxml extends Mage_Payment_Model_Method_Cc
             $preauth_id = $sxml->getResult('preauth_id');
             $payment->setCcTransId('' . $preauth_id);
             $payment->setTransactionId('' . $preauth_id);
-            $payment->setIsTransactionClosed(FALSE);
+            $payment->setIsTransactionClosed(false);
 
             if ($this->getDebug()) {
                 $logger->info("Preauth Approved. #: " . $payment->getCcTransId());
