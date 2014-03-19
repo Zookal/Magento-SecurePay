@@ -20,8 +20,6 @@
  * @notes          Partially derived from the Fontis SecurePay module, Copyright (c) 2008 Fontis Pty. Ltd. (http://www.fontis.com.au)
  */
 
-require_once('SecurePay/securexml.php');
-
 define('NO_ANTIFRAUD', 1);
 
 /**
@@ -160,7 +158,7 @@ class SecurePay_Sxml_Model_Sxml extends Mage_Payment_Model_Method_Cc
 
         if ($this->isFraudGuard($iStoreId)) {
             //Create the fraudguard transaction object
-            $sxml = new securexml_transaction ($this->getMode(0, $iStoreId), $this->getUsername($iStoreId), $this->getPassword($iStoreId));
+            $sxml = new SecurePay_Sxml_Model_SecureXml ($this->getMode(0, $iStoreId), $this->getUsername($iStoreId), $this->getPassword($iStoreId));
             //Populate fraud-check with user's details, if available
 
             $shipping_address = $this->getQuote()->getShippingAddress();
@@ -174,7 +172,7 @@ class SecurePay_Sxml_Model_Sxml extends Mage_Payment_Model_Method_Cc
 
         if ($approved) {
             //Get the preauth transaction object
-            $sxml = new securexml_transaction ($this->getMode(NO_ANTIFRAUD), $this->getUsername($iStoreId), $this->getPassword($iStoreId));
+            $sxml = new SecurePay_Sxml_Model_SecureXml ($this->getMode(NO_ANTIFRAUD), $this->getUsername($iStoreId), $this->getPassword($iStoreId));
             //Issue the preauth
             $approved = $sxml->processPreauth($amount, $transaction_id, $payment->getCcNumber(), $payment->getCcExpMonth(), $payment->getCcExpYear(), $payment->getCcCid(), Mage::app()->getStore()->getBaseCurrency()->getCurrencyCode());
         }
@@ -241,7 +239,7 @@ class SecurePay_Sxml_Model_Sxml extends Mage_Payment_Model_Method_Cc
         }
 
         //Create the transaction object
-        $sxml = new securexml_transaction($this->getMode(NO_ANTIFRAUD), $this->getUsername($iStoreId), $this->getPassword($iStoreId));
+        $sxml = new SecurePay_Sxml_Model_SecureXml($this->getMode(NO_ANTIFRAUD), $this->getUsername($iStoreId), $this->getPassword($iStoreId));
 
         $transaction_id = $payment->getOrder()->getIncrementId();
 
@@ -251,7 +249,7 @@ class SecurePay_Sxml_Model_Sxml extends Mage_Payment_Model_Method_Cc
         } else {
             if ($this->isFraudGuard($iStoreId)) {
                 //Issue a fraudguard transaction
-                $sxml             = new securexml_transaction ($this->getMode(), $this->getUsername($iStoreId), $this->getPassword($iStoreId));
+                $sxml             = new SecurePay_Sxml_Model_SecureXml ($this->getMode(), $this->getUsername($iStoreId), $this->getPassword($iStoreId));
                 $shipping_address = $this->getQuote()->getShippingAddress();
                 $billing_address  = $this->getQuote()->getBillingAddress();
 
@@ -313,7 +311,7 @@ class SecurePay_Sxml_Model_Sxml extends Mage_Payment_Model_Method_Cc
         }
 
         //Create the transaction object
-        $sxml = new securexml_transaction ($this->getMode(NO_ANTIFRAUD), $this->getUsername($iStoreId), $this->getPassword($iStoreId));
+        $sxml = new SecurePay_Sxml_Model_SecureXml ($this->getMode(NO_ANTIFRAUD), $this->getUsername($iStoreId), $this->getPassword($iStoreId));
 
         $transaction_id = $payment->getOrder()->getIncrementId();
 
@@ -364,7 +362,7 @@ class SecurePay_Sxml_Model_Sxml extends Mage_Payment_Model_Method_Cc
         }
 
         //Create the transaction object
-        $sxml = new securexml_transaction ($this->getMode(NO_ANTIFRAUD), $this->getUsername($iStoreId), $this->getPassword($iStoreId));
+        $sxml = new SecurePay_Sxml_Model_SecureXml ($this->getMode(NO_ANTIFRAUD), $this->getUsername($iStoreId), $this->getPassword($iStoreId));
 
         $transaction_id = $payment->getOrder()->getIncrementId();
 
